@@ -1,0 +1,77 @@
+# Plugin created by SrLaion
+
+messages:
+  rank-conquistado: '&aYou won the rank {rank}&a.'
+  sem-perm: '&cYou are not allowed to run this command.'
+
+# Ranks session, you can create the ranks you want! Just follow the model.
+
+ranks:
+  bronze:
+    prefix: '&3[B]'
+    name: '&fBronze'
+    name-in-inv: '&3Bronze'
+    lighting: true
+    broadcast: true
+    broadcast-message:
+      - ''
+      - '&6&lRANKS &eThe player &6{player} &ewon the rank &6&lBRONZE'
+      - ''
+    kills: 1 #kills required to achieve rank
+    commands:
+      - 'say {player} won the rank bronze.'
+  prata:
+    prefix: '&f[P]'
+    name: '&fPrata'
+    name-in-inv: '&fPrata'
+    lighting: true
+    broadcast: true
+    broadcast-message:
+      - ''
+      - '&6&lRANKS &eThe player &6{player} &ewon the rank &6&lPRATA'
+      - ''
+    kills: 50 #kills required to achieve rank
+    commands:
+      - 'say {player} won the rank prata.'
+  ouro:
+    prefix: '&e[O]'
+    name: '&fOuro'
+    name-in-inv: '&eTheuro'
+    lighting: true
+    broadcast: true
+    broadcast-message:
+      - ''
+      - '&6&lRANKS &eThe player &6{player} &ewon the rank &6&lOURO'
+      - ''
+    kills: 100 #kills required to achieve rank
+    commands:
+      - 'say {player} won the rank ouro.'
+  diamante:
+    prefix: '&b[D]'
+    name: '&fDiamante'
+    name-in-inv: '&bDiamante'
+    lighting: true
+    broadcast: true
+    broadcast-message:
+      - ''
+      - '&6&lRANKS &eThe player &6{player} &ewon the rank &6&lDIAMANTE'
+      - ''
+    kills: 500 #kills required to achieve rank
+    commands:
+      - 'say {player} won the rank diamante.'
+  esmeralda:
+    prefix: '&a[E]'
+    name: '&fEsmeralda'
+    name-in-inv: '&aEsmeralda'
+    lighting: true
+    broadcast: true
+    broadcast-message:
+      - ''
+      - '&6&lRANKS &eThe player &6{player} &ewon the rank &6&lESMERALDA'
+      - ''
+    kills: 1000 #kills required to achieve rank
+    commands:
+      - 'say {player} won the rank esmeralda.'
+
+inventory:
+  title: 'Ranks do servidor'

@@ -1,0 +1,6 @@
+name: Ranks
+main: br.laion.ranks.plugin.RanksPlugin
+version: 2.8-SNAPSHOT
+authors: [SrLaion]
+commands:
+  ranks:
