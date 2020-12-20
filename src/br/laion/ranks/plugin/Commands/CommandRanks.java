@@ -12,31 +12,42 @@ import br.laion.ranks.plugin.RanksPlugin;
 import br.laion.ranks.plugin.Utils.ConfigUtils;
 import br.laion.ranks.plugin.Utils.Scroller;
 
+import minecraft.arplex.core.annotation.Command;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CommandRanks implements CommandExecutor {
+public class CommandRanks {
+    
+            @Command(
+                name = "rank",
+                aliases = {"ranks"},
+                inGameOnly = true,
+                permission: "ranks.use"
+        )
+    
+        public void ranks(Execution execution, CommandSender sender, String[] args) {
 
-
-    @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String lbl, String[] args) {
-
-        if(!(sender instanceof Player)) return false;
-
-        Player p = (Player) sender;
-
-        if(!(p.hasPermission("ranks.use"))) {
-
+        if (sender == null) {
+            sender.sendMessage(new String[]{
+                    "",
+                    "Â§cOcorreu um erro, relogue no servidor.",
+                    "",
+            });
+            
+            Player p = (Player) sender;
+            
+            if (!(permission == "ranks.use")) {
             p.sendMessage(ConfigUtils.getString("messages.sem-perm", true));
-            return false;
+            return;
         }
 
         List<ItemStack> items = new ArrayList<>();
 
         RanksPlugin.plugin.getConfig().getConfigurationSection("ranks").getKeys(false).forEach(r -> {
 
-            String name = RanksPlugin.plugin.getConfig().getString("ranks." + r + ".name-in-inv").replace("&", "§");
+            String name = RanksPlugin.plugin.getConfig().getString("ranks." + r + ".name-in-inv").replace("&", "Â§");
             ItemStack item = new ItemStack(Material.NAME_TAG, 1);
             ItemMeta meta = item.getItemMeta();
 
@@ -44,7 +55,7 @@ public class CommandRanks implements CommandExecutor {
 
             int kills = RanksPlugin.plugin.getConfig().getInt("ranks." + r + ".kills");
 
-            meta.setLore(Collections.singletonList("§7Mate §f" + kills + " §7jogador(es) para conquistar este rank."));
+            meta.setLore(Collections.singletonList("Â§7Mate Â§f" + kills + " Â§7jogador(es) para conquistar este rank."));
             item.setItemMeta(meta);
 
             items.add(item);
